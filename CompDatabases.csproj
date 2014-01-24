@@ -78,6 +78,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Prace\Projects\Freya [Framework]\Freya\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="Freya">
+      <HintPath>..\..\Freya [Framework]\Freya\Freya\bin\Debug\Freya.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>D:\Prace\Projects\Freya [Framework]\Freya\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -105,8 +108,6 @@
     <Compile Include="SQLiteDatabase\Mappings\ProductMap.cs" />
     <Compile Include="SQLiteDatabase\Mappings\StoreMap.cs" />
     <Compile Include="SQLiteDatabase\SQLite.cs" />
-    <Compile Include="SQLiteDatabase\SQLiteLayer.cs" />
-    <Compile Include="SQLCeDatabase\SQLCeLayer.cs" />
     <Compile Include="SQLCeDatabase\SQLCe.cs" />
     <Compile Include="SQLiteDatabase\Entities\Employee.cs">
       <SubType>Code</SubType>

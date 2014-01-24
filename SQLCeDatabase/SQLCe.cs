@@ -1,11 +1,11 @@
-﻿using FluentNHibernateExamples.CompDatabases.SQLCeDatabase.Mappings;
-using FluentNHibernate.Cfg;
+﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using FluentNHibernateExamples.CompDatabases.SQLCeDatabase.Mappings;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
-using System.IO;
 using System.Data.SqlServerCe;
+using System.IO;
 
 namespace FluentNHibernateExamples.CompDatabases.SQLCeDatabase
 {
@@ -43,12 +43,15 @@ namespace FluentNHibernateExamples.CompDatabases.SQLCeDatabase
 
         private static void BuildSchema(Configuration config)
         {
-            if (_schema || !File.Exists(_dbFile))
+            if (!File.Exists(_dbFile))
             {
                 using (var engine = new SqlCeEngine(_connectionString))
                 {
                     engine.CreateDatabase();
                 }
+            }
+            if (_schema)
+            {                
                 new SchemaExport(config)
                     .Create(false, true);
             }
