@@ -26,5 +26,13 @@ namespace FluentNHibernateExamples.CompDatabases.SQLCeDatabase.Entities
             employee.Store = this;
             Staff.Add(employee);
         }
+
+        public virtual void AddProducts(params Product[] products)
+        {
+            foreach (var product in products)
+            {
+                AddProduct(product);
+            }
+        }
     }
 }
