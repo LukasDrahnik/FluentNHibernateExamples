@@ -1,85 +1,67 @@
-﻿using System;
+﻿using FluentNHibernateExamples.CompDatabases.SQLCeDatabase;
 using FluentNHibernateExamples.CompDatabases.SQLiteDatabase;
-using FluentNHibernateExamples.CompDatabases.SQLCeDatabase;
+using Freya.Util;
+using System;
 
 
 namespace FluentNHibernateExamples.CompDatabases
 {
     class Program
     {
+        private const int iterations = 10000;
+
         static void Main()
         {
-            // Inicializace databáze
-            SQLiteLayer.InitializeDatabase("SQLite.db", "SQLite.db");
-            SQLCeLayer.InitializeDatabase("SQLCe.sdf", "Data Source=SQLCe.sdf");
+            // Init databases
+            SQLite.InitializeDatabase("SQLite.db", "SQLite.db");
+            SQLCe.InitializeDatabase("SQLCe.sdf", "Data Source=SQLCe.sdf");
 
-            // Testovací data
-            //var barginBasin = new Store { Name = "Bargin Basin" };
-            //var potatoes = new Product { Name = "Potatoes", Price = 3.60 };
-            //var fish = new Product { Name = "Fish", Price = 4.49 };
+            // Testing - SQLite
+            TimeSpan timeSQLite = StopwatchUtil.Time(() =>
+            {
+                using (var session = SQLite.OpenSession())
+                {
+                    using (var transaction = session.BeginTransaction())
+                    {
+                        var barginBasin = new SQLiteDatabase.Entities.Store { Name = "Bargin Basin" };
 
-            //SQLiteLayer.AddProductsToStore(barginBasin, potatoes, fish);
+                        var potatoes = new SQLiteDatabase.Entities.Product { Name = "Potatoes", Price = 3.60 };
+                        var fish = new SQLiteDatabase.Entities.Product { Name = "Fish", Price = 4.49 };
+
+                        for (int i = 0; i < iterations; i++)
+                            barginBasin.AddProducts(potatoes, fish);
+
+                        session.SaveOrUpdate(barginBasin);
+                        transaction.Commit();
+                    }
+                }
+            });
+
+            // Testing - SQLCe
+            TimeSpan timeSQLCe = StopwatchUtil.Time(() =>
+            {
+                using (var session = SQLCe.OpenSession())
+                {
+                    using (var transaction = session.BeginTransaction())
+                    {
+                        var barginBasin = new SQLCeDatabase.Entities.Store { Name = "Bargin Basin" };
+
+                        var potatoes = new SQLCeDatabase.Entities.Product { Name = "Potatoes", Price = 3.60 };
+                        var fish = new SQLCeDatabase.Entities.Product { Name = "Fish", Price = 4.49 };
+
+                        for (int i = 0; i < iterations; i++)
+                            barginBasin.AddProducts(potatoes, fish);
+
+                        session.SaveOrUpdate(barginBasin);
+                        transaction.Commit();
+                    }
+                }
+            });
+
+            Console.WriteLine("SQLite: {0}", timeSQLite);
+            Console.WriteLine("SQLCe: {0}", timeSQLCe);
            
             Console.ReadKey();
-        }
-
-        //private static ISessionFactory CreateSessionFactory(string _dbFile)
-        //{
-        //    return Fluently.Configure()
-        //        .Database(SQLiteConfiguration.Standard
-        //            .UsingFile(_dbFile))
-        //        .Mappings(m =>
-        //            m.FluentMappings.AddFromAssemblyOf<Program>())
-        //        .ExposeConfiguration(Schema.Build(true))
-        //        .BuildSessionFactory();
-        //}
-
-        //private static void BuildSchema(Configuration config)
-        //{
-        //    // delete the existing db on each run
-        //    if (File.Exists(DbFile))
-        //        File.Delete(DbFile);
-
-        //    // this NHibernate tool takes a configuration (with mapping info in)
-        //    // and exports a database schema from it
-        //    new SchemaExport(config)
-        //        .Create(false, true);
-        //}
-
-        //private static void WriteStorePretty(Examples.FirstProject.Database1.Entities.Store store)
-        //{
-        //    Console.WriteLine(store.Name);
-        //    Console.WriteLine("  Products:");
-                        
-        //    foreach (var product in store.Products)
-        //    {
-        //        Console.WriteLine("    " + product.Name);
-        //    }
-
-        //    Console.WriteLine("  Staff:");
-
-        //    foreach (var employee in store.Staff)
-        //    {
-        //        Console.WriteLine("    " + employee.FirstName + " " + employee.LastName);
-        //    }
-
-        //    Console.WriteLine();
-        //}
-
-        //public static void AddProductsToStore(Examples.FirstProject.Database1.Entities.Store store, params Examples.FirstProject.Database1.Entities.Product[] products)
-        //{
-        //    foreach (var product in products)
-        //    {
-        //        store.AddProduct(product);
-        //    }
-        //}
-
-        //public static void AddEmployeesToStore(Examples.FirstProject.Database1.Entities.Store store, params Examples.FirstProject.Database1.Entities.Employee[] employees)
-        //{
-        //    foreach (var employee in employees)
-        //    {
-        //        store.AddEmployee(employee);
-        //    }
-        //}
+        }        
     }
 }
