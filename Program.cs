@@ -8,7 +8,7 @@ namespace FluentNHibernateExamples.CompDatabases
 {
     class Program
     {
-        private const int iterations = 10000;
+        private const int iterations = 100;
 
         static void Main()
         {
@@ -23,15 +23,17 @@ namespace FluentNHibernateExamples.CompDatabases
                 {
                     using (var transaction = session.BeginTransaction())
                     {
-                        var barginBasin = new SQLiteDatabase.Entities.Store { Name = "Bargin Basin" };
-
-                        var potatoes = new SQLiteDatabase.Entities.Product { Name = "Potatoes", Price = 3.60 };
-                        var fish = new SQLiteDatabase.Entities.Product { Name = "Fish", Price = 4.49 };
-
                         for (int i = 0; i < iterations; i++)
+                        {
+                            var barginBasin = new SQLiteDatabase.Entities.Store { Name = "Bargin Basin" };
+
+                            var potatoes = new SQLiteDatabase.Entities.Product { Name = "Potatoes", Price = 3.60 };
+                            var fish = new SQLiteDatabase.Entities.Product { Name = "Fish", Price = 4.49 };
+
                             barginBasin.AddProducts(potatoes, fish);
 
-                        session.SaveOrUpdate(barginBasin);
+                            session.SaveOrUpdate(barginBasin);
+                        }
                         transaction.Commit();
                     }
                 }
@@ -44,15 +46,17 @@ namespace FluentNHibernateExamples.CompDatabases
                 {
                     using (var transaction = session.BeginTransaction())
                     {
-                        var barginBasin = new SQLCeDatabase.Entities.Store { Name = "Bargin Basin" };
-
-                        var potatoes = new SQLCeDatabase.Entities.Product { Name = "Potatoes", Price = 3.60 };
-                        var fish = new SQLCeDatabase.Entities.Product { Name = "Fish", Price = 4.49 };
-
                         for (int i = 0; i < iterations; i++)
+                        {
+                            var barginBasin = new SQLCeDatabase.Entities.Store { Name = "Bargin Basin" };
+
+                            var potatoes = new SQLCeDatabase.Entities.Product { Name = "Potatoes", Price = 3.60 };
+                            var fish = new SQLCeDatabase.Entities.Product { Name = "Fish", Price = 4.49 };
+
                             barginBasin.AddProducts(potatoes, fish);
 
-                        session.SaveOrUpdate(barginBasin);
+                            session.SaveOrUpdate(barginBasin);
+                        }
                         transaction.Commit();
                     }
                 }
@@ -60,7 +64,7 @@ namespace FluentNHibernateExamples.CompDatabases
 
             Console.WriteLine("SQLite: {0}", timeSQLite);
             Console.WriteLine("SQLCe: {0}", timeSQLCe);
-           
+
             Console.ReadKey();
         }        
     }
