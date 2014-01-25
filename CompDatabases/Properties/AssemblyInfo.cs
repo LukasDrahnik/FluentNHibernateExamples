@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FluentNHibernateExamples.CompDatabases")]
-[assembly: AssemblyCopyright("Copyright ©  2014 Lukáš Drahník")]
+[assembly: AssemblyCopyright("Copyright ©  2014 Drahník Lukáš")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
