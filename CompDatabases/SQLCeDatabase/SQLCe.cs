@@ -6,6 +6,7 @@ using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using System.Data.SqlServerCe;
 using System.IO;
+using Freya.Nhib;
 
 namespace FluentNHibernateExamples.CompDatabases.SQLCeDatabase
 {
@@ -29,14 +30,7 @@ namespace FluentNHibernateExamples.CompDatabases.SQLCeDatabase
             _sessionFactory = Fluently.Configure()
                 .Database(MsSqlCeConfiguration.Standard
                 .ConnectionString(_connectionString))
-                .Mappings(m =>
-                          m.FluentMappings.Add<EmployeeMap>())
-                           .Mappings(m =>
-                          m.FluentMappings.Add<LocationMap>())
-                           .Mappings(m =>
-                          m.FluentMappings.Add<ProductMap>())
-                           .Mappings(m =>
-                          m.FluentMappings.Add<StoreMap>())
+                .Mappings(m => m.FluentMappings.AddFromNamespaceOf<StoreMap>())
                 .ExposeConfiguration(BuildSchema)
                 .BuildSessionFactory();
         }

@@ -100,6 +100,9 @@
     <Reference Include="Freya">
       <HintPath>..\..\Freya [Framework]\Freya\Freya\bin\Debug\Freya.dll</HintPath>
     </Reference>
+    <Reference Include="Freya.Nhib">
+      <HintPath>..\..\Freya [Framework]\Freya\Freya.Nhib\bin\Debug\Freya.Nhib.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>D:\Prace\Projects\Freya [Framework]\Freya\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>

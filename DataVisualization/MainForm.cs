@@ -39,7 +39,7 @@ namespace DataVisualization
                  // Init dataGridViews
                 using (var transaction = session.BeginTransaction())
                 {
-                    dataGridView1.DataSource = session.Query<Store>().ToList();
+                    //dataGridView1.DataSource = session.Query<Product>().ToList();
                 }
             }
         }

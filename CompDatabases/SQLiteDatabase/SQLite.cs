@@ -5,6 +5,7 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using System.IO;
+using Freya.Nhib;
 
 namespace FluentNHibernateExamples.CompDatabases.SQLiteDatabase
 {
@@ -28,14 +29,7 @@ namespace FluentNHibernateExamples.CompDatabases.SQLiteDatabase
             _sessionFactory = Fluently.Configure()
                 .Database(SQLiteConfiguration.Standard
                     .UsingFile(_dbFile))
-                .Mappings(m =>
-                          m.FluentMappings.Add<EmployeeMap>())
-                           .Mappings(m =>
-                          m.FluentMappings.Add<LocationMap>())
-                           .Mappings(m =>
-                          m.FluentMappings.Add<ProductMap>())
-                           .Mappings(m =>
-                          m.FluentMappings.Add<StoreMap>())
+                 .Mappings(m => m.FluentMappings.AddFromNamespaceOf<StoreMap>())
                 .ExposeConfiguration(BuildSchema)
                 .BuildSessionFactory();
         }
