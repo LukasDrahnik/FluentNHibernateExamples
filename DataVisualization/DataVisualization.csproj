@@ -35,6 +35,9 @@
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="Freya">
+      <HintPath>..\..\Freya [Framework]\Freya\Freya\bin\Debug\Freya.dll</HintPath>
+    </Reference>
     <Reference Include="Freya.Nhib">
       <HintPath>..\..\Freya [Framework]\Freya\Freya.Nhib\bin\Debug\Freya.Nhib.dll</HintPath>
     </Reference>

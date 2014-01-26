@@ -4,6 +4,8 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using NHibernate.Linq;
+using System.Collections.Generic;
+using Freya.Util;
 
 namespace DataVisualization
 {
@@ -36,11 +38,33 @@ namespace DataVisualization
                     transaction.Commit();
                 }
 
-                 // Init dataGridViews
+                 // Init dataGridView
                 using (var transaction = session.BeginTransaction())
-                {
-                    //dataGridView1.DataSource = session.Query<Product>().ToList();
+                {                   
+                    dataGridView1.DataSource = session.Query<Product>().ToList();
                 }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            // Filter dataGridView
+            using (var session = SQLite.OpenSession())
+            {
+                List<Product> products = new List<Product>();
+                foreach (var product in session.Query<Product>())
+                {
+                    int id;
+                    if (int.TryParse(textBox1.Text, out id) && product.Id == id)
+                    {
+                        products.Add(product);
+                    }
+                    if (product.Name.Contains(textBox1.Text))
+                    {
+                        products.Add(product);
+                    }
+                }
+                dataGridView1.DataSource = products;
             }
         }
     }
