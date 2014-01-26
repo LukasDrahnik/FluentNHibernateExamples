@@ -16,8 +16,8 @@ namespace FluentNHibernateExamples.CompDatabases
             // Init databases
             SQLite.InitializeDatabase("SQLite.db", "SQLite.db");
             SQLCe.InitializeDatabase("SQLCe.sdf", "Data Source=SQLCe.sdf");            
-            Firebird.InitializeDatabase("Firebird.fdb", "Database=Firebird.fdb;User=SYSDBA;Password=masterkey;Dialect=3;Charset=UTF8;ServerType=1"); //;ServerType=1;User=SYSDBA;Password=masterkey
-          
+            Firebird.InitializeDatabase("Firebird.fdb", "Database=Firebird.fdb;User=SYSDBA;Password=masterkey;Dialect=3;Charset=UTF8;ServerType=1");
+
             // Testing - SQLite
             TimeSpan timeSQLite = StopwatchUtil.Time(() =>
             {
