@@ -1,6 +1,6 @@
-using FluentNHibernateExamples.CompDatabases.SQLCeDatabase.Entities;
+using FluentNHibernateExamples.CompDatabases.Entities;
 
-namespace FluentNHibernateExamples.CompDatabases.SQLCeDatabase.Entities
+namespace FluentNHibernateExamples.CompDatabases.Entities
 {
     public class Employee
     {

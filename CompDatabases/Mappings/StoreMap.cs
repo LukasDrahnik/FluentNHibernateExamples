@@ -1,7 +1,7 @@
-using FluentNHibernateExamples.CompDatabases.SQLCeDatabase.Entities;
+using FluentNHibernateExamples.CompDatabases.Entities;
 using FluentNHibernate.Mapping;
 
-namespace FluentNHibernateExamples.CompDatabases.SQLCeDatabase.Mappings
+namespace FluentNHibernateExamples.CompDatabases.Mappings
 {
     public class StoreMap : ClassMap<Store>
     {

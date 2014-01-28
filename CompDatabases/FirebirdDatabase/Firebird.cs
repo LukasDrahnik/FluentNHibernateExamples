@@ -1,7 +1,7 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using FluentNHibernateExamples.CompDatabases.FirebirdDatabase.Mappings;
+using FluentNHibernateExamples.CompDatabases.Mappings;
 using Freya.Nhib;
 using NHibernate;
 using NHibernate.Cfg;

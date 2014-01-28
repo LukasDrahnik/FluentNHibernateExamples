@@ -1,4 +1,5 @@
-﻿using FluentNHibernateExamples.CompDatabases.FirebirdDatabase;
+﻿using FluentNHibernateExamples.CompDatabases.Entities;
+using FluentNHibernateExamples.CompDatabases.FirebirdDatabase;
 using FluentNHibernateExamples.CompDatabases.SQLCeDatabase;
 using FluentNHibernateExamples.CompDatabases.SQLiteDatabase;
 using Freya.Util;
@@ -27,10 +28,10 @@ namespace FluentNHibernateExamples.CompDatabases
                     {
                         for (int i = 0; i < iterations; i++)
                         {
-                            var barginBasin = new SQLiteDatabase.Entities.Store { Name = "Bargin Basin" };
+                            var barginBasin = new Store { Name = "Bargin Basin" };
 
-                            var potatoes = new SQLiteDatabase.Entities.Product { Name = "Potatoes", Price = 3.60 };
-                            var fish = new SQLiteDatabase.Entities.Product { Name = "Fish", Price = 4.49 };
+                            var potatoes = new Product { Name = "Potatoes", Price = 3.60 };
+                            var fish = new Product { Name = "Fish", Price = 4.49 };
 
                             barginBasin.AddProducts(potatoes, fish);
 
@@ -50,10 +51,10 @@ namespace FluentNHibernateExamples.CompDatabases
                     {
                         for (int i = 0; i < iterations; i++)
                         {
-                            var barginBasin = new SQLCeDatabase.Entities.Store { Name = "Bargin Basin" };
+                            var barginBasin = new Store { Name = "Bargin Basin" };
 
-                            var potatoes = new SQLCeDatabase.Entities.Product { Name = "Potatoes", Price = 3.60 };
-                            var fish = new SQLCeDatabase.Entities.Product { Name = "Fish", Price = 4.49 };
+                            var potatoes = new Product { Name = "Potatoes", Price = 3.60 };
+                            var fish = new Product { Name = "Fish", Price = 4.49 };
 
                             barginBasin.AddProducts(potatoes, fish);
 
@@ -73,10 +74,10 @@ namespace FluentNHibernateExamples.CompDatabases
                     {
                         for (int i = 0; i < iterations; i++)
                         {
-                            var barginBasin = new FirebirdDatabase.Entities.Store { Name = "Bargin Basin" };
+                            var barginBasin = new Store { Name = "Bargin Basin" };
 
-                            var potatoes = new FirebirdDatabase.Entities.Product { Name = "Potatoes", Price = 3.60 };
-                            var fish = new FirebirdDatabase.Entities.Product { Name = "Fish", Price = 4.49 };
+                            var potatoes = new Product { Name = "Potatoes", Price = 3.60 };
+                            var fish = new Product { Name = "Fish", Price = 4.49 };
 
                             barginBasin.AddProducts(potatoes, fish);
 

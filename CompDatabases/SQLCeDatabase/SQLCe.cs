@@ -1,6 +1,6 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using FluentNHibernateExamples.CompDatabases.SQLCeDatabase.Mappings;
+using FluentNHibernateExamples.CompDatabases.Mappings;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;

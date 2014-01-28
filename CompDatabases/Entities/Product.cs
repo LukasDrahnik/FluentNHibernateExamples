@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FluentNHibernateExamples.CompDatabases.FirebirdDatabase.Entities
+namespace FluentNHibernateExamples.CompDatabases.Entities
 {
     public class Product
     {

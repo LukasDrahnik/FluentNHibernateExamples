@@ -1,7 +1,7 @@
-using FluentNHibernateExamples.CompDatabases.FirebirdDatabase.Entities;
+using FluentNHibernateExamples.CompDatabases.Entities;
 using FluentNHibernate.Mapping;
 
-namespace FluentNHibernateExamples.CompDatabases.FirebirdDatabase.Mappings
+namespace FluentNHibernateExamples.CompDatabases.Mappings
 {
     public class LocationMap : ComponentMap<Location>
     {

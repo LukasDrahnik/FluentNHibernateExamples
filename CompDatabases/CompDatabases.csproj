@@ -142,42 +142,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SQLCeDatabase\Entities\Employee.cs" />
-    <Compile Include="SQLCeDatabase\Entities\Product.cs" />
-    <Compile Include="SQLCeDatabase\Entities\Store.cs" />
-    <Compile Include="FirebirdDatabase\Entities\Employee.cs" />
-    <Compile Include="FirebirdDatabase\Entities\Product.cs" />
-    <Compile Include="FirebirdDatabase\Entities\Store.cs" />
-    <Compile Include="FirebirdDatabase\Mappings\EmployeeMap.cs" />
-    <Compile Include="FirebirdDatabase\Mappings\LocationMap.cs" />
-    <Compile Include="FirebirdDatabase\Mappings\ProductMap.cs" />
-    <Compile Include="FirebirdDatabase\Mappings\StoreMap.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Store.cs" />
+    <Compile Include="Mappings\EmployeeMap.cs" />
+    <Compile Include="Mappings\LocationMap.cs" />
+    <Compile Include="Mappings\ProductMap.cs" />
+    <Compile Include="Mappings\StoreMap.cs" />
     <Compile Include="FirebirdDatabase\Firebird.cs" />
-    <Compile Include="SQLiteDatabase\Mappings\EmployeeMap.cs" />
-    <Compile Include="SQLiteDatabase\Mappings\LocationMap.cs" />
-    <Compile Include="SQLiteDatabase\Mappings\ProductMap.cs" />
-    <Compile Include="SQLiteDatabase\Mappings\StoreMap.cs" />
     <Compile Include="SQLiteDatabase\SQLite.cs" />
     <Compile Include="SQLCeDatabase\SQLCe.cs" />
-    <Compile Include="SQLiteDatabase\Entities\Employee.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SQLiteDatabase\Entities\Product.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SQLiteDatabase\Entities\Store.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SQLCeDatabase\Mappings\EmployeeMap.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SQLCeDatabase\Mappings\LocationMap.cs" />
-    <Compile Include="SQLCeDatabase\Mappings\ProductMap.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SQLCeDatabase\Mappings\StoreMap.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -204,6 +178,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <PropertyGroup>
