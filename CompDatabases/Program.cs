@@ -2,7 +2,7 @@
 using FluentNHibernateExamples.CompDatabases.FirebirdDatabase;
 using FluentNHibernateExamples.CompDatabases.SQLCeDatabase;
 using FluentNHibernateExamples.CompDatabases.SQLiteDatabase;
-using Freya.Util;
+using Freya.Utils;
 using System;
 
 
