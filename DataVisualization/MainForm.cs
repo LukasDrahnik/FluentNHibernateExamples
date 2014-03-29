@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows.Forms;
 using NHibernate.Linq;
 using System.Collections.Generic;
-using Freya.Util;
 
 namespace DataVisualization
 {
